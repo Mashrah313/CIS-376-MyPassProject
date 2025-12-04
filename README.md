@@ -738,8 +738,8 @@ For issues or questions:
 
 ## 📎 Project Artifacts
 
-- `University of Michigan Dearborn.pdf`
-- `MyPassProject Secure Password & Vault Manager Presented by_ Nagi Mashrah.pdf`
+- [University of Michigan Dearborn.pdf](./University%20of%20Michigan%20Dearborn.pdf)
+- [MyPassProject Secure Password & Vault Manager Presented by_ Nagi Mashrah.pdf](./MyPassProject%20Secure%20Password%20%26%20Vault%20Manager%20Presented%20by_%20Nagi%20Mashrah.pdf)
 - Demo video: https://www.youtube.com/watch?v=oc0k5aC3vDg
 
 These PDFs are stored in the repository root and the video link provides a quick overview/demo of the project.
