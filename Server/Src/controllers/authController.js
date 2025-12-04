@@ -69,6 +69,37 @@ export const login = async (req, res) => {
   }
 };
 
+// =============== GET SECURITY QUESTIONS ==================
+export const getSecurityQuestions = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Find user
+    const result = await db.query(
+      "SELECT security_q1, security_q2, security_q3 FROM users WHERE email = $1",
+      [email]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const user = result.rows[0];
+
+    return res.json({
+      success: true,
+      questions: [
+        user.security_q1,
+        user.security_q2,
+        user.security_q3
+      ]
+    });
+  } catch (err) {
+    console.error("GET QUESTIONS ERROR:", err);
+    return res.status(500).json({ error: err.message });
+  }
+};
+
 // =============== RECOVER PASSWORD ==================
 export const recoverPassword = async (req, res) => {
   try {
@@ -86,14 +117,14 @@ export const recoverPassword = async (req, res) => {
 
     const user = result.rows[0];
 
-    // Compare answers directly with stored security questions
+    // Compare answers (case-insensitive and trimmed)
     const ok =
-      ans1 === user.security_q1 &&
-      ans2 === user.security_q2 &&
-      ans3 === user.security_q3;
+      ans1?.toLowerCase().trim() === user.security_q1?.toLowerCase().trim() &&
+      ans2?.toLowerCase().trim() === user.security_q2?.toLowerCase().trim() &&
+      ans3?.toLowerCase().trim() === user.security_q3?.toLowerCase().trim();
 
     if (!ok) {
-      return res.status(401).json({ error: "Recovery failed" });
+      return res.status(401).json({ error: "Incorrect answers. Recovery failed" });
     }
 
     return res.json({

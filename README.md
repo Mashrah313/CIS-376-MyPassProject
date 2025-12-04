@@ -19,6 +19,7 @@ A secure, modern password manager built with React, Node.js/Express, and Postgre
 8. [API Endpoints](#api-endpoints)
 9. [Design Patterns Implemented](#design-patterns-implemented)
 10. [Usage Guide](#usage-guide)
+11. [Project Artifacts](#project-artifacts)
 
 ---
 
@@ -732,3 +733,13 @@ For issues or questions:
 
 **Last Updated**: December 2, 2025  
 **Version**: 1.0.0
+
+---
+
+## 📎 Project Artifacts
+
+- `University of Michigan Dearborn.pdf`
+- `MyPassProject Secure Password & Vault Manager Presented by_ Nagi Mashrah.pdf`
+- Demo video: https://www.youtube.com/watch?v=oc0k5aC3vDg
+
+These PDFs are stored in the repository root and the video link provides a quick overview/demo of the project.
